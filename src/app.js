@@ -3,12 +3,15 @@ const express = require("express");
 const app = express();
 
 // handling incoming requests
-app.use("/hello", (req, res) => {
-  res.send("Hello hello hello");
+
+app.get("/user", (req, res) => {
+  res.send({ firstName: "Asha", lastName: "Bikawat" });
 });
 
-app.use("/test", (req, res) => {
-  res.send("Hello from test");
+app.post("/user/:id/:name/:pass", (req, res) => {
+  //   console.log(req.query);
+  console.log(req);
+  res.send("data saved succesfully");
 });
 
 // creating server instance
